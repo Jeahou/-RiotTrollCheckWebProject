@@ -1,0 +1,125 @@
+{{>layout/header}}
+<div class="container">
+    <div class="search">
+        <input type="text" class ="form-control" id="keyword" />
+        <button type="button" id="btn-gamer-find">검색</button>
+    </div>
+    <div class="update">
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>소환사명</th>
+                <th>레벨</th>
+                <th>티어</th>
+                <th>포인트</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#user}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{summonerLevel}}</td>
+                    <td>{{tier}} {{rank}}</td>
+                    <td>{{point}}</td>
+                </tr>
+            {{/user}}
+            </tbody>
+        </table>
+        <button type="submit" class="update-btn" id="update-btn">업데이트</button>
+    </div>
+    <div class="winRating">
+        <table class="chart">
+            <thead class="thead-strong">
+            <tr>
+                <th>최근 승률</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#winRating}}
+                <tr>
+                    <td>{{winRating}}%</td>
+                </tr>
+            {{/winRating}}
+            </tbody>
+        </table>
+        <table class="chart">
+            <thead class="thead-strong">
+            <tr>
+                <th>아이템 트롤</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#itemTroll}}
+                <tr>
+                    <td>{{itemTroll}}</td>
+                </tr>
+            {{/itemTroll}}
+            </tbody>
+        </table>
+        <table class="chart">
+            <thead class="thead-strong">
+            <tr>
+                <th>kda 관리</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#kdaTroll}}
+                <tr>
+                    <td>{{kdaTroll}}</td>
+                </tr>
+            {{/kdaTroll}}
+            </tbody>
+        </table>
+    </div>
+    <div class="match">
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <!--<tr>
+                <th colspan="4">(승 or 패)</th>
+            </tr>-->
+                <tr>
+                    <th>승/패</th>
+                    <th>시간</th>
+                    <th>챔피언명</th>
+                    <th>spell</th>
+                    <th>spell</th>
+                    <th>kill</th>
+                    <th>death</th>
+                    <th>assist</th>
+                    <th>포지션</th>
+                    <th>아이템</th>
+
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                {{#gameResult}}
+                    <tr>
+                        <td>{{win}}</td>
+                        <td>{{gameStartTime}}</td>
+                        <td><img src="{{championNameUrl}}" style="width: 50px; height: 50px;">{{championName}}</td>
+                        <td><img src="{{spell1NameUrl}}" style="width: 50px; height: 50px;"></td>
+                        <td><img src="{{spell2NameUrl}}" style="width: 50px; height: 50px;"></td>
+                        <td>{{kills}}</td>
+                        <td>{{deaths}}</td>
+                        <td>{{assists}}</td>
+                        <td>{{lane}}</td>
+                        <td>
+                            <div class="img-group">
+                            <img src="{{item0Url}}" alt="1" onerror="this.style.display='none'" style="width: 50px; height: 50px;">
+                            <img src="{{item1Url}}" alt="1" onerror="this.style.display='none'" style="width: 50px; height: 50px;">
+                            <img src="{{item2Url}}" alt="1" onerror="this.style.display='none'" style="width: 50px; height: 50px;">
+                        </div>
+                            <div class="img-group2">
+                                <img src="{{item3Url}}" alt="1" onerror="this.style.display='none'" style="width: 50px; height: 50px;">
+                                <img src="{{item4Url}}" alt="1" onerror="this.style.display='none'" style="width: 50px; height: 50px;">
+                                <img src="{{item5Url}}" alt="1" onerror="this.style.display='none'" style="width: 50px; height: 50px;">
+                                <img src="{{item6Url}}" alt="1" onerror="this.style.display='none'" style="width: 50px; height: 50px;">
+                            </div>
+                        </td>
+                    </tr>
+                {{/gameResult}}
+                </tbody>
+            </table>
+    </div>
+</div>
+{{>layout/footer}}
